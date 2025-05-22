@@ -1,0 +1,309 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "62f225c7c1903ae2e0a3",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 1000,
+    "height": 720,
+    "width": 385,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "keyDriversVisual",
+    "query": {
+      "queryState": {
+        "ExplainBy": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Appended Table"
+                    }
+                  },
+                  "Property": "Customer Country"
+                }
+              },
+              "queryRef": "Appended Table.Customer Country",
+              "nativeQueryRef": "Customer Country"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Appended Table"
+                    }
+                  },
+                  "Property": "OEM Customer"
+                }
+              },
+              "queryRef": "Appended Table.OEM Customer",
+              "nativeQueryRef": "OEM Customer"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Appended Table"
+                    }
+                  },
+                  "Property": "Path to Market"
+                }
+              },
+              "queryRef": "Appended Table.Path to Market",
+              "nativeQueryRef": "Path to Market"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Appended Table"
+                    }
+                  },
+                  "Property": "Sold to Customer Code"
+                }
+              },
+              "queryRef": "Appended Table.Sold to Customer Code",
+              "nativeQueryRef": "Sold to Customer Code"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Appended Table"
+                    }
+                  },
+                  "Property": "Generic Account"
+                }
+              },
+              "queryRef": "Appended Table.Generic Account",
+              "nativeQueryRef": "Generic Account"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Appended Table"
+                    }
+                  },
+                  "Property": "OEM Customer (AITC)"
+                }
+              },
+              "queryRef": "Appended Table.OEM Customer (AITC)",
+              "nativeQueryRef": "OEM Customer (AITC)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Appended Table"
+                    }
+                  },
+                  "Property": "Purch Cust Region"
+                }
+              },
+              "queryRef": "Appended Table.Purch Cust Region",
+              "nativeQueryRef": "Purch Cust Region"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Appended Table"
+                        }
+                      },
+                      "Hierarchy": "Purch Cust Region Hierarchy"
+                    }
+                  },
+                  "Level": "Purch Cust Region"
+                }
+              },
+              "queryRef": "Appended Table.Purch Cust Region Hierarchy.Purch Cust Region",
+              "nativeQueryRef": "Purch Cust Region Hierarchy Purch Cust Region"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Appended Table"
+                        }
+                      },
+                      "Hierarchy": "Purch Cust Region Hierarchy"
+                    }
+                  },
+                  "Level": "Customer Country"
+                }
+              },
+              "queryRef": "Appended Table.Purch Cust Region Hierarchy.Customer Country",
+              "nativeQueryRef": "Purch Cust Region Hierarchy Customer Country"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Appended Table"
+                        }
+                      },
+                      "Hierarchy": "Purch Cust Region Hierarchy"
+                    }
+                  },
+                  "Level": "Customer State"
+                }
+              },
+              "queryRef": "Appended Table.Purch Cust Region Hierarchy.Customer State",
+              "nativeQueryRef": "Purch Cust Region Hierarchy Customer State"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Appended Table"
+                        }
+                      },
+                      "Hierarchy": "Purch Cust Region Hierarchy"
+                    }
+                  },
+                  "Level": "Customer City"
+                }
+              },
+              "queryRef": "Appended Table.Purch Cust Region Hierarchy.Customer City",
+              "nativeQueryRef": "Purch Cust Region Hierarchy Customer City"
+            }
+          ]
+        },
+        "Target": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Appended Table"
+                    }
+                  },
+                  "Property": "Billings"
+                }
+              },
+              "queryRef": "Appended Table.Billings",
+              "nativeQueryRef": "Billings"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "keyDriversDrillVisual": [
+        {
+          "properties": {
+            "defaultColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "keyDrivers": [
+        {
+          "properties": {
+            "selectedAnalysis": {
+              "expr": {
+                "Literal": {
+                  "Value": "'keyInfluencers'"
+                }
+              }
+            },
+            "allowProfiles": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "selectedNumericAnalysis": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Continuous'"
+                }
+              }
+            },
+            "targetValue": {
+              "expr": {
+                "Literal": {
+                  "Value": "'-1440000D'"
+                }
+              }
+            },
+            "numericTargetSelectedKind": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "keyInfluencersVisual": [
+        {
+          "properties": {
+            "primaryColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F7C123'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

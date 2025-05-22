@@ -1,0 +1,19 @@
+relationship eaccd20b-0079-45a1-8a5a-e1b969b0d386
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Date Table'.Date
+	toColumn: LocalDateTable_d45537b2-6b7e-459d-ba6e-d0fa4551ff8d.Date
+
+relationship 2ba1967f-deb1-f745-3f3e-4118853708a4
+	fromColumn: 'Appended Table'.Date
+	toColumn: 'Date Table'.Date
+
+relationship 5732f5f3-8267-4097-bdb2-f0f516641c54
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Date Table'.'Start of Month'
+	toColumn: LocalDateTable_3739f10f-1b2d-44fe-aa9a-4656b807ed9f.Date
+
+relationship 261aa4a3-03af-49fd-ad43-260762de3103
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Date Table'.'Start of Week'
+	toColumn: LocalDateTable_7436118b-1eb6-407c-87ab-91b6997d7530.Date
+

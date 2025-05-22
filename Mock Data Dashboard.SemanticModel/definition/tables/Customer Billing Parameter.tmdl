@@ -1,0 +1,48 @@
+table 'Customer Billing Parameter'
+	lineageTag: ed73eb1d-a571-4c74-9246-541fffe44d34
+
+	column Parameter
+		lineageTag: d7c2ed1e-2ab4-4ed0-93a8-8c172216a0ba
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parameter Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Parameter Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Fields'
+		isHidden
+		lineageTag: f1ba77dd-c000-432c-8a4f-2388db320f98
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parameter Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Order'
+		isHidden
+		formatString: 0
+		lineageTag: b2a99815-4073-472b-a8e7-ae8c51324d86
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Customer Billing Parameter' = calculated
+		mode: import
+		source =
+				{
+				    ("Avg Billing Per Account", NAMEOF('Measured Values'[Avg Billing Per Account]), 0),
+				    ("Total Billing Amount", NAMEOF('Measured Values'[Total Billing Amount]), 1)
+				}
+
+	annotation PBI_Id = bd57c33e54774651a0e743e02adfde22
+

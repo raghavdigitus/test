@@ -1,0 +1,210 @@
+expression 'Errors in Masked_Bill & Book for Forecast - 2024' =
+		let
+		Source = #"Masked_Bill & Book for Forecast - 2024",
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Fiscal Year", "Fiscal Month", "Product Portfolio", "HPL Code - Name", "S&OP Code - Name", "MPN", "Customer Item No", "Selling Entity Region", "Purch Cust Region", "Price Origin", "Price Reference", "Price Reference Line", "Path to Market", "Customer Country", "Customer City", "Customer State", "Customer Sort Name", "Generic Account", "OEM Customer", "Primary Mfg Site", "Business Group", "Business Units", "Entity Code", "Sold to Customer Code", "Entity Name", "OEM Customer (AITC)", "SKU", "Billings", "Billings Qty", "Bookings", "Bookings Qty"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Fiscal Year", "Fiscal Month", "Product Portfolio", "HPL Code - Name", "S&OP Code - Name", "MPN", "Customer Item No", "Selling Entity Region", "Purch Cust Region", "Price Origin", "Price Reference", "Price Reference Line", "Path to Market", "Customer Country", "Customer City", "Customer State", "Customer Sort Name", "Generic Account", "OEM Customer", "Primary Mfg Site", "Business Group", "Business Units", "Entity Code", "Sold to Customer Code", "Entity Name", "OEM Customer (AITC)", "SKU", "Billings", "Billings Qty", "Bookings", "Bookings Qty"})
+		in
+		  #"Reordered Columns"
+	lineageTag: 3466bf5e-17e9-44ff-ac75-3125401819a7
+	queryGroup: 'Query Errors - 09/05/2025 12:45:19'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Errors in Appended Table' =
+		let
+		Source = #"Appended Table",
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Fiscal Year", "Fiscal Month", "Product Portfolio", "HPL Code - Name", "S&OP Code - Name", "MPN", "Customer Item No", "Selling Entity Region", "Purch Cust Region", "Price Origin", "Price Reference", "Price Reference Line", "Path to Market", "Customer Country", "Customer City", "Customer State", "Customer Sort Name", "Generic Account", "OEM Customer", "Primary Mfg Site", "Business Group", "Business Units", "Entity Code", "Sold to Customer Code", "Entity Name", "OEM Customer (AITC)", "SKU", "Billings", "Billings Qty", "Bookings", "Bookings Qty"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Fiscal Year", "Fiscal Month", "Product Portfolio", "HPL Code - Name", "S&OP Code - Name", "MPN", "Customer Item No", "Selling Entity Region", "Purch Cust Region", "Price Origin", "Price Reference", "Price Reference Line", "Path to Market", "Customer Country", "Customer City", "Customer State", "Customer Sort Name", "Generic Account", "OEM Customer", "Primary Mfg Site", "Business Group", "Business Units", "Entity Code", "Sold to Customer Code", "Entity Name", "OEM Customer (AITC)", "SKU", "Billings", "Billings Qty", "Bookings", "Bookings Qty"})
+		in
+		  #"Reordered Columns"
+	lineageTag: c643b187-58b0-4096-af29-ebe298bbe903
+	queryGroup: 'Query Errors - 09/05/2025 12:45:19'
+
+	annotation PBI_ResultType = Table
+
+expression 'Errors in Fact Sales Data' =
+		let
+		Source = #"Fact Sales Data",
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Fiscal Year", "Fiscal Month", "Customer Item No", "Selling Entity Region", "Purch Cust Region", "Price Origin", "Price Reference", "Price Reference Line", "Path to Market", "Customer Country", "Customer City", "Customer State", "Customer Sort Name", "Generic Account", "OEM Customer", "Primary Mfg Site", "Business Group", "Business Units", "Entity Code", "Sold to Customer Code", "Entity Name", "OEM Customer (AITC)", "SKU", "Billings", "Billings Qty", "Bookings", "Bookings Qty"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Fiscal Year", "Fiscal Month", "Customer Item No", "Selling Entity Region", "Purch Cust Region", "Price Origin", "Price Reference", "Price Reference Line", "Path to Market", "Customer Country", "Customer City", "Customer State", "Customer Sort Name", "Generic Account", "OEM Customer", "Primary Mfg Site", "Business Group", "Business Units", "Entity Code", "Sold to Customer Code", "Entity Name", "OEM Customer (AITC)", "SKU", "Billings", "Billings Qty", "Bookings", "Bookings Qty"})
+		in
+		  #"Reordered Columns"
+	lineageTag: 23d21afe-fa52-4a2a-9e44-8417ed12e3e3
+	queryGroup: 'Query Errors - 09/05/2025 12:45:19'
+
+	annotation PBI_ResultType = Table
+
+expression 'Errors in Company Table' =
+		let
+		Source = #"Company Table",
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Selling Entity Region", "Price Origin", "Price Reference", "Price Reference Line", "Primary Mfg Site", "Business Group", "Business Units", "Entity Code", "Entity Name"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Selling Entity Region", "Price Origin", "Price Reference", "Price Reference Line", "Primary Mfg Site", "Business Group", "Business Units", "Entity Code", "Entity Name"})
+		in
+		  #"Reordered Columns"
+	lineageTag: 7498f95a-4714-4cc6-90c6-8c31a04ac3b1
+	queryGroup: 'Query Errors - 09/05/2025 12:45:19'
+
+	annotation PBI_ResultType = Table
+
+expression 'Masked_Bill & Book for Forecast - 2021' =
+		let
+		    Source = Csv.Document(File.Contents("C:\Users\tiwar\Desktop\Sales Data_4\Masked_Bill & Book for Forecast - 2021.csv"),[Delimiter=",", Columns=31, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Fiscal Year", Int64.Type}, {"Fiscal Month", type text}, {"Product Portfolio", type text}, {"HPL Code - Name", type text}, {"S&OP Code - Name", type text}, {"MPN", type text}, {"Customer Item No", type text}, {"Selling Entity Region", type text}, {"Purch Cust Region", type text}, {"Price Origin", type text}, {"Price Reference", type text}, {"Price Reference Line", Int64.Type}, {"Path to Market", type text}, {"Customer Country", type text}, {"Customer City", type text}, {"Customer State", type text}, {"Customer Sort Name", type text}, {"Generic Account", type text}, {"OEM Customer", type text}, {"Primary Mfg Site", type text}, {"Business Group", type text}, {"Business Units", type text}, {"Entity Code", Int64.Type}, {"Sold to Customer Code", type text}, {"Entity Name", type text}, {"OEM Customer (AITC)", type text}, {"SKU", type text}, {"Billings", type number}, {"Billings Qty", Int64.Type}, {"Bookings", type number}, {"Bookings Qty", Int64.Type}})
+		in
+		    #"Changed Type"
+	lineageTag: 6584de8b-e803-4e13-be59-c9fae311d214
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Masked_Bill & Book for Forecast - 2022' =
+		let
+		    Source = Csv.Document(File.Contents("C:\Users\tiwar\Desktop\Sales Data_4\Masked_Bill & Book for Forecast - 2022.csv"),[Delimiter=",", Columns=31, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Fiscal Year", Int64.Type}, {"Fiscal Month", type text}, {"Product Portfolio", type text}, {"HPL Code - Name", type text}, {"S&OP Code - Name", type text}, {"MPN", type text}, {"Customer Item No", type text}, {"Selling Entity Region", type text}, {"Purch Cust Region", type text}, {"Price Origin", type text}, {"Price Reference", type text}, {"Price Reference Line", Int64.Type}, {"Path to Market", type text}, {"Customer Country", type text}, {"Customer City", type text}, {"Customer State", type text}, {"Customer Sort Name", type text}, {"Generic Account", type text}, {"OEM Customer", type text}, {"Primary Mfg Site", type text}, {"Business Group", type text}, {"Business Units", type text}, {"Entity Code", Int64.Type}, {"Sold to Customer Code", type text}, {"Entity Name", type text}, {"OEM Customer (AITC)", type text}, {"SKU", type text}, {"Billings", type number}, {"Billings Qty", Int64.Type}, {"Bookings", type number}, {"Bookings Qty", Int64.Type}})
+		in
+		    #"Changed Type"
+	lineageTag: 2c9a7971-fef4-4d37-82fd-c674e8d16b40
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Masked_Bill & Book for Forecast - 2023' =
+		let
+		    Source = Csv.Document(File.Contents("C:\Users\tiwar\Desktop\Sales Data_4\Masked_Bill & Book for Forecast - 2023.csv"),[Delimiter=",", Columns=31, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Fiscal Year", Int64.Type}, {"Fiscal Month", type text}, {"Product Portfolio", type text}, {"HPL Code - Name", type text}, {"S&OP Code - Name", type text}, {"MPN", type text}, {"Customer Item No", type text}, {"Selling Entity Region", type text}, {"Purch Cust Region", type text}, {"Price Origin", type text}, {"Price Reference", type text}, {"Price Reference Line", Int64.Type}, {"Path to Market", type text}, {"Customer Country", type text}, {"Customer City", type text}, {"Customer State", type text}, {"Customer Sort Name", type text}, {"Generic Account", type text}, {"OEM Customer", type text}, {"Primary Mfg Site", type text}, {"Business Group", type text}, {"Business Units", type text}, {"Entity Code", Int64.Type}, {"Sold to Customer Code", type text}, {"Entity Name", type text}, {"OEM Customer (AITC)", type text}, {"SKU", type text}, {"Billings", type number}, {"Billings Qty", Int64.Type}, {"Bookings", type number}, {"Bookings Qty", Int64.Type}})
+		in
+		    #"Changed Type"
+	lineageTag: 03cdd20a-fba7-4426-94fb-e5f3b10dfb03
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Masked_Bill & Book for Forecast - 2024' =
+		let
+		    Source = Csv.Document(File.Contents("C:\Users\tiwar\Desktop\Sales Data_4\Masked_Bill & Book for Forecast - 2024.csv"),[Delimiter=",", Columns=31, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Fiscal Year", Int64.Type}, {"Fiscal Month", type text}, {"Product Portfolio", type text}, {"HPL Code - Name", type text}, {"S&OP Code - Name", type text}, {"MPN", type text}, {"Customer Item No", type text}, {"Selling Entity Region", type text}, {"Purch Cust Region", type text}, {"Price Origin", type text}, {"Price Reference", type text}, {"Price Reference Line", Int64.Type}, {"Path to Market", type text}, {"Customer Country", type text}, {"Customer City", type text}, {"Customer State", type text}, {"Customer Sort Name", type text}, {"Generic Account", type text}, {"OEM Customer", type text}, {"Primary Mfg Site", type text}, {"Business Group", type text}, {"Business Units", type text}, {"Entity Code", Int64.Type}, {"Sold to Customer Code", type text}, {"Entity Name", type text}, {"OEM Customer (AITC)", type text}, {"SKU", type text}, {"Billings", type number}, {"Billings Qty", Int64.Type}, {"Bookings", type number}, {"Bookings Qty", Int64.Type}})
+		in
+		    #"Changed Type"
+	lineageTag: c0787f91-f6d9-4614-9ee3-17cc1b858102
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Fact Sales Data' =
+		let
+		    Source = Table.Combine({#"Masked_Bill & Book for Forecast - 2021", #"Masked_Bill & Book for Forecast - 2022", #"Masked_Bill & Book for Forecast - 2023", #"Masked_Bill & Book for Forecast - 2024"}),
+		    #"Removed Columns" = Table.RemoveColumns(Source,{"Product Portfolio", "HPL Code - Name", "S&OP Code - Name", "MPN"})
+		in
+		    #"Removed Columns"
+	lineageTag: 89fdb84e-d159-47d6-b20e-abbddcdf92a2
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Product Table' =
+		let
+		    Source = Table.Combine({#"Masked_Bill & Book for Forecast - 2021", #"Masked_Bill & Book for Forecast - 2022", #"Masked_Bill & Book for Forecast - 2023", #"Masked_Bill & Book for Forecast - 2024"}),
+		    #"Removed Columns" = Table.RemoveColumns(Source,{"Fiscal Year", "Fiscal Month", "Customer Item No", "Selling Entity Region", "Purch Cust Region", "Price Origin", "Price Reference", "Price Reference Line", "Path to Market", "Customer Country", "Customer City", "Customer State", "Customer Sort Name", "Generic Account", "OEM Customer", "Primary Mfg Site", "Business Group", "Business Units", "Entity Code", "Sold to Customer Code", "Entity Name", "OEM Customer (AITC)", "Billings", "Billings Qty", "Bookings", "Bookings Qty"}),
+		    #"Removed Duplicates" = Table.Distinct(#"Removed Columns", {"SKU"})
+		in
+		    #"Removed Duplicates"
+	lineageTag: 62b41eda-2dba-4a38-95a9-fa1289c5d46e
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Customer Table' =
+		let
+		    Source = Table.Combine({#"Masked_Bill & Book for Forecast - 2021", #"Masked_Bill & Book for Forecast - 2022", #"Masked_Bill & Book for Forecast - 2023", #"Masked_Bill & Book for Forecast - 2024"}),
+		    #"Replaced Value" = Table.ReplaceValue(Source,"","Undefined",Replacer.ReplaceValue,{"Customer Item No"}),
+		    #"Removed Columns" = Table.RemoveColumns(#"Replaced Value",{"Fiscal Year", "Fiscal Month", "Product Portfolio", "HPL Code - Name", "S&OP Code - Name", "MPN", "Selling Entity Region", "Price Origin", "Price Reference", "Price Reference Line", "Primary Mfg Site", "Business Group", "Business Units", "Entity Code", "Entity Name", "SKU", "Billings", "Billings Qty", "Bookings", "Bookings Qty"}),
+		    #"Removed Duplicates" = Table.Distinct(#"Removed Columns", {"Customer Item No"})
+		in
+		    #"Removed Duplicates"
+	lineageTag: 72701819-7a7a-4ad9-9ee2-4b700fedba67
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Company Table' =
+		let
+		    Source = Table.Combine({#"Masked_Bill & Book for Forecast - 2021", #"Masked_Bill & Book for Forecast - 2022", #"Masked_Bill & Book for Forecast - 2023", #"Masked_Bill & Book for Forecast - 2024"}),
+		    #"Removed Columns" = Table.RemoveColumns(Source,{"Fiscal Year", "Fiscal Month", "Product Portfolio", "HPL Code - Name", "S&OP Code - Name", "MPN", "Customer Item No", "Purch Cust Region", "Path to Market", "Customer Country", "Customer City", "Customer State", "Customer Sort Name", "Generic Account", "OEM Customer", "OEM Customer (AITC)", "Billings", "Billings Qty", "Bookings", "Bookings Qty", "SKU", "Sold to Customer Code"})
+		in
+		    #"Removed Columns"
+	lineageTag: ee493561-a8cb-4224-9427-a4a5cd1ee8cc
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Errors in Appended Table (2)' =
+		let
+		Source = #"Appended Table",
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Fiscal Year", "Fiscal Month", "Product Portfolio", "HPL Code - Name", "S&OP Code - Name", "MPN", "Customer Item No", "Selling Entity Region", "Purch Cust Region", "Price Origin", "Price Reference", "Price Reference Line", "Path to Market", "Customer Country", "Customer City", "Customer State", "Customer Sort Name", "Generic Account", "OEM Customer", "Primary Mfg Site", "Business Group", "Business Units", "Entity Code", "Sold to Customer Code", "Entity Name", "OEM Customer (AITC)", "SKU", "Billings", "Billings Qty", "Bookings", "Bookings Qty", "Date"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Fiscal Year", "Fiscal Month", "Product Portfolio", "HPL Code - Name", "S&OP Code - Name", "MPN", "Customer Item No", "Selling Entity Region", "Purch Cust Region", "Price Origin", "Price Reference", "Price Reference Line", "Path to Market", "Customer Country", "Customer City", "Customer State", "Customer Sort Name", "Generic Account", "OEM Customer", "Primary Mfg Site", "Business Group", "Business Units", "Entity Code", "Sold to Customer Code", "Entity Name", "OEM Customer (AITC)", "SKU", "Billings", "Billings Qty", "Bookings", "Bookings Qty", "Date"})
+		in
+		  #"Reordered Columns"
+	lineageTag: 91d804e1-ad26-42ed-8cdd-64816ee442be
+	queryGroup: 'Query Errors - 13/05/2025 10:57:47'
+
+	annotation PBI_NavigationStepName = Navigation
+

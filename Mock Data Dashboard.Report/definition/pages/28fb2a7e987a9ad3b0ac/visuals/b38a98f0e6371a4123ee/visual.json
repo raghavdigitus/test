@@ -1,0 +1,262 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "b38a98f0e6371a4123ee",
+  "position": {
+    "x": 1080,
+    "y": 0,
+    "z": 4000,
+    "height": 50,
+    "width": 200,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Appended Table"
+                        }
+                      },
+                      "Hierarchy": "Purch Cust Region Hierarchy"
+                    }
+                  },
+                  "Level": "Purch Cust Region"
+                }
+              },
+              "queryRef": "Appended Table.Purch Cust Region Hierarchy.Purch Cust Region",
+              "nativeQueryRef": "Purch Cust Region Hierarchy Purch Cust Region",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Appended Table"
+                        }
+                      },
+                      "Hierarchy": "Purch Cust Region Hierarchy"
+                    }
+                  },
+                  "Level": "Customer Country"
+                }
+              },
+              "queryRef": "Appended Table.Purch Cust Region Hierarchy.Customer Country",
+              "nativeQueryRef": "Purch Cust Region Hierarchy Customer Country",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Appended Table"
+                        }
+                      },
+                      "Hierarchy": "Purch Cust Region Hierarchy"
+                    }
+                  },
+                  "Level": "Customer State"
+                }
+              },
+              "queryRef": "Appended Table.Purch Cust Region Hierarchy.Customer State",
+              "nativeQueryRef": "Purch Cust Region Hierarchy Customer State",
+              "active": false
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Appended Table"
+                        }
+                      },
+                      "Hierarchy": "Purch Cust Region Hierarchy"
+                    }
+                  },
+                  "Level": "Customer City"
+                }
+              },
+              "queryRef": "Appended Table.Purch Cust Region Hierarchy.Customer City",
+              "nativeQueryRef": "Purch Cust Region Hierarchy Customer City",
+              "active": false
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Values"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "Appended Table.Purch Cust Region Hierarchy.Purch Cust Region"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Appended Table"
+                    }
+                  },
+                  "Property": "Purch Cust Region"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Appended Table.Purch Cust Region Hierarchy.Customer Country"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Appended Table.Purch Cust Region Hierarchy.Customer State"
+            ],
+            "isCollapsed": true
+          },
+          {
+            "queryRefs": [
+              "Appended Table.Purch Cust Region Hierarchy.Customer City"
+            ],
+            "isCollapsed": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'ANZ'"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
+      }
+    ],
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "items": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F7C123'"
+                    }
+                  }
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.2
+                    }
+                  }
+                }
+              }
+            },
+            "outlineWeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,38 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+/// Errors in queries that were loaded on 09/05/2025 12:45:19.
+queryGroup 'Query Errors - 09/05/2025 12:45:19'
+
+	annotation PBI_QueryGroupOrder = 0
+
+/// Errors in queries that were loaded on 13/05/2025 10:57:47.
+queryGroup 'Query Errors - 13/05/2025 10:57:47'
+
+	annotation PBI_QueryGroupOrder = 1
+
+annotation PBI_QueryOrder = ["Masked_Bill & Book for Forecast - 2021","Masked_Bill & Book for Forecast - 2022","Masked_Bill & Book for Forecast - 2023","Masked_Bill & Book for Forecast - 2024","Appended Table","Fact Sales Data","Product Table","Customer Table","Company Table","Errors in Masked_Bill & Book for Forecast - 2024","Errors in Appended Table","Errors in Fact Sales Data","Errors in Company Table","Measured Values","Date Table","Errors in Appended Table (2)"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.143.878.0 (25.05)+b20aa3b866ec1b70879135a4e60e4b1301c75b21
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'Appended Table'
+ref table 'Measured Values'
+ref table 'Date Table'
+ref table DateTableTemplate_2a7d6328-3059-455c-8ea1-299a3c7b2bd4
+ref table LocalDateTable_d45537b2-6b7e-459d-ba6e-d0fa4551ff8d
+ref table LocalDateTable_3739f10f-1b2d-44fe-aa9a-4656b807ed9f
+ref table LocalDateTable_7436118b-1eb6-407c-87ab-91b6997d7530
+ref table 'Exec Parameter'
+ref table 'Customer Billing Parameter'
+
+ref cultureInfo en-US
+

@@ -1,0 +1,105 @@
+table 'Measured Values'
+	lineageTag: 254ad89a-dba8-4a2e-8409-354f600bc0ad
+
+	measure 'Total Booking Amount' = SUM('Appended Table'[Bookings])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 1f4779ba-5e82-42b3-82fb-76069209c733
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Total Billing Amount' = ```
+			
+			SUMX(
+			    'Appended Table',
+			    'Appended Table'[Billings]
+			)
+			
+			```
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: bc0cd85c-fb26-40ee-8910-bfa6a82b0da6
+
+	measure 'Total Transactions' = COUNTROWS('Appended Table')
+		formatString: #,0
+		lineageTag: 03da8e51-66ea-42ba-af92-12293ab7eb52
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Previous Month Billing' = CALCULATE([Total Billing Amount],DATEADD('Date Table'[Date],-1,MONTH))
+		lineageTag: 0bb4a501-bf4b-419c-90ba-6ebfe1a97cba
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Previous Month Booking' = CALCULATE([Total Booking Amount],DATEADD('Date Table'[Date],-1,MONTH))
+		lineageTag: 3087b4b2-341b-48fe-a2af-7d64c22db266
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Booking Targets' = [Previous Month Booking] * 1.05
+		lineageTag: b90018c7-84fe-467d-973b-62f40e8a553f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Billing Targets' = [Previous Month Billing] * 1.05
+		lineageTag: 75727549-f610-4caa-8162-d5c0538a9c08
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Previous Month Billing Fixed' = ```
+			
+			VAR PrevMonthBilling = 
+			    CALCULATE(
+			        [Total Billing Amount],
+			        DATEADD('Date Table'[Date], -1, MONTH)
+			    )
+			RETURN IF(ISBLANK(PrevMonthBilling), 0, PrevMonthBilling)
+			```
+		lineageTag: dd9f91a8-4449-4780-8430-44568c074c37
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Previous Month Transactions' = CALCULATE([Total Transactions],DATEADD('Date Table'[Date],-1,MONTH))
+		formatString: 0
+		lineageTag: b9b99d20-3807-4e9b-87f2-f724e0008335
+
+	measure 'Transaction Targets' = [Total Transactions] * 1.05
+		lineageTag: 533b79c0-4ed4-4a3e-9b9b-7d402222c147
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Negative Billings Count' =
+			CALCULATE(
+			    COUNTROWS('Appended Table'),'Appended Table'[Billings]<0)
+		formatString: #,0
+		lineageTag: e3845a5b-6818-48c7-b45e-1336ffe61206
+
+	measure 'Negative Billings Amt' = CALCULATE(SUM('Appended Table'[Billings]),'Appended Table'[Billings]<0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 74d2e486-2e76-4ad1-a9b8-956b367725c6
+
+	measure 'Distinct Generic Accounts' = DISTINCTCOUNT('Appended Table'[Generic Account])
+		formatString: 0
+		lineageTag: da9429a8-0101-4543-8f3c-83fe83c13f26
+
+	measure 'Avg Billing Per Account' = [Total Billing Amount]/[Distinct Generic Accounts]
+		lineageTag: a2c6513c-36fd-463b-bfe4-f1e9a5f501b0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Positive Bookings Count' = CALCULATE(SUM('Appended Table'[Bookings Qty]),'Appended Table'[Bookings Qty]>0)
+		formatString: 0
+		lineageTag: 8cb29860-7367-4608-bd42-17e4497bbc00
+
+	partition 'Measured Values' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

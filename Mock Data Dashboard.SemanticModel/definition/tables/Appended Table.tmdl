@@ -1,0 +1,322 @@
+table 'Appended Table'
+	lineageTag: 489868a6-2deb-487e-a9cc-82b3aaa0376f
+
+	column 'Fiscal Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: c6d0d0f2-b160-4ed4-805f-358514817c45
+		summarizeBy: sum
+		sourceColumn: Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Month'
+		dataType: string
+		lineageTag: 1253a24e-d46d-4d26-9323-2d0cf57bf98e
+		summarizeBy: none
+		sourceColumn: Fiscal Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Portfolio'
+		dataType: string
+		lineageTag: 27d98136-bca2-4564-8b2a-5449ef3475a8
+		summarizeBy: none
+		sourceColumn: Product Portfolio
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HPL Code - Name'
+		dataType: string
+		lineageTag: 120cb27d-b641-4415-ad82-328273552c28
+		summarizeBy: none
+		sourceColumn: HPL Code - Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'S&OP Code - Name'
+		dataType: string
+		lineageTag: 982a2ba8-3975-40a4-bdd7-abc55d79aebb
+		summarizeBy: none
+		sourceColumn: S&OP Code - Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column MPN
+		dataType: string
+		lineageTag: 54457112-2ee4-47ec-9921-2cfc500158c2
+		summarizeBy: none
+		sourceColumn: MPN
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Item No'
+		dataType: string
+		lineageTag: 29573eee-b4e3-46a7-b5b2-fb978129ab2c
+		summarizeBy: none
+		sourceColumn: Customer Item No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Selling Entity Region'
+		dataType: string
+		lineageTag: c82bef32-c077-4d50-b9d4-f82f992775ee
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: Selling Entity Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Purch Cust Region'
+		dataType: string
+		lineageTag: 3354be5d-486b-4b75-9e15-ea286784195f
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: Purch Cust Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price Origin'
+		dataType: string
+		lineageTag: 2e96449c-3d09-43d0-819d-0cedddd8d4bc
+		summarizeBy: none
+		sourceColumn: Price Origin
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price Reference'
+		dataType: string
+		lineageTag: 9ada694d-a3a7-4ce6-8876-7490eb83fa6c
+		summarizeBy: none
+		sourceColumn: Price Reference
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price Reference Line'
+		dataType: int64
+		formatString: 0
+		lineageTag: 06047b0e-ad9d-4ca4-807a-f33959e4dc46
+		summarizeBy: sum
+		sourceColumn: Price Reference Line
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Path to Market'
+		dataType: string
+		lineageTag: 6e51d809-0b8d-419e-9601-aab60ba932fb
+		summarizeBy: none
+		sourceColumn: Path to Market
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Country'
+		dataType: string
+		lineageTag: 570b3b53-72db-4937-8aef-9c316be0dd1e
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: Customer Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer City'
+		dataType: string
+		lineageTag: 44e1956e-4ade-4f4c-b777-39449dfd1ee0
+		dataCategory: City
+		summarizeBy: none
+		sourceColumn: Customer City
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer State'
+		dataType: string
+		lineageTag: ec3e2c4e-6291-4fd8-9d13-fe5825b0b5af
+		dataCategory: StateOrProvince
+		summarizeBy: none
+		sourceColumn: Customer State
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Sort Name'
+		dataType: string
+		lineageTag: 1b108232-70c9-498d-8301-ab174b0d9e8c
+		summarizeBy: none
+		sourceColumn: Customer Sort Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Generic Account'
+		dataType: string
+		lineageTag: e799f91e-1edc-4c23-b938-719ecb2e7c8b
+		summarizeBy: none
+		sourceColumn: Generic Account
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'OEM Customer'
+		dataType: string
+		lineageTag: 97dc5711-86be-454b-9b71-7f6d5d313039
+		summarizeBy: none
+		sourceColumn: OEM Customer
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primary Mfg Site'
+		dataType: string
+		lineageTag: da666d4e-e3ff-4256-bb1c-df5d2aacfa1d
+		summarizeBy: none
+		sourceColumn: Primary Mfg Site
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Group'
+		dataType: string
+		lineageTag: 153dd74d-dc96-4d2a-b564-7acbfc2da63c
+		summarizeBy: none
+		sourceColumn: Business Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Units'
+		dataType: string
+		lineageTag: 73f706bc-f1a3-4356-bac7-b954113e6cca
+		summarizeBy: none
+		sourceColumn: Business Units
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entity Code'
+		dataType: int64
+		formatString: 0
+		lineageTag: 986a4786-e595-4603-9cf2-a734a1f79e02
+		summarizeBy: count
+		sourceColumn: Entity Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sold to Customer Code'
+		dataType: string
+		lineageTag: 09558cb0-2c73-458a-aa4d-8061463756da
+		summarizeBy: none
+		sourceColumn: Sold to Customer Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entity Name'
+		dataType: string
+		lineageTag: d9e98516-879e-4d0e-9ea3-eaaa74c4431f
+		summarizeBy: none
+		sourceColumn: Entity Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'OEM Customer (AITC)'
+		dataType: string
+		lineageTag: cb622b38-20f9-4bb8-88a5-f4770b493b64
+		summarizeBy: none
+		sourceColumn: OEM Customer (AITC)
+
+		annotation SummarizationSetBy = Automatic
+
+	column SKU
+		dataType: string
+		lineageTag: faa1f9ad-7fe2-4e13-998f-cae11e04f10d
+		summarizeBy: none
+		sourceColumn: SKU
+
+		annotation SummarizationSetBy = Automatic
+
+	column Billings
+		dataType: double
+		lineageTag: 6084b717-6090-4274-93be-ae2d5131d03c
+		summarizeBy: sum
+		sourceColumn: Billings
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Billings Qty'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ac4638e-00a2-44d3-905f-21d05271df84
+		summarizeBy: sum
+		sourceColumn: Billings Qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bookings
+		dataType: double
+		lineageTag: 5b6f5e12-6d5a-412d-945d-29733d4eab50
+		summarizeBy: sum
+		sourceColumn: Bookings
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Bookings Qty'
+		dataType: int64
+		formatString: 0
+		lineageTag: 679737ea-b6d0-4ffc-a7fe-8e7bd58b313d
+		summarizeBy: sum
+		sourceColumn: Bookings Qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: faee14ad-83e7-4728-b873-fd71b0be0984
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	hierarchy 'Purch Cust Region Hierarchy'
+		lineageTag: 4c643368-e23b-4164-b84c-9f33109a71d3
+
+		level 'Purch Cust Region'
+			lineageTag: 557718a1-9133-45f9-a602-977d677e1646
+			column: 'Purch Cust Region'
+
+		level 'Customer Country'
+			lineageTag: 21f7ca67-3eeb-4c06-ae67-8dbb8998d2e5
+			column: 'Customer Country'
+
+		level 'Customer State'
+			lineageTag: 0b053b4d-ce9d-419e-99b6-f5bdd324edcb
+			column: 'Customer State'
+
+		level 'Customer City'
+			lineageTag: fda67f8a-9736-4a62-b8db-00773d518a9d
+			column: 'Customer City'
+
+	hierarchy 'Business Group Hierarchy'
+		lineageTag: b01fcaa3-ce7e-4bdc-aad7-1041109fabfa
+
+		level 'Business Group'
+			lineageTag: 11f0c42c-ef29-4873-9f3f-39586bc1caa1
+			column: 'Business Group'
+
+		level 'Business Units'
+			lineageTag: 4d2df35c-44d6-41d7-883b-f545d761f29e
+			column: 'Business Units'
+
+	partition 'Appended Table' = m
+		mode: import
+		source =
+				let
+				    Source = Table.Combine({#"Masked_Bill & Book for Forecast - 2021", #"Masked_Bill & Book for Forecast - 2022", #"Masked_Bill & Book for Forecast - 2023", #"Masked_Bill & Book for Forecast - 2024"}),
+				    #"Inserted Merged Column" = Table.AddColumn(Source, "Date", each Text.Combine({[Fiscal Month], Text.From([Fiscal Year], "en-IO")}, ", "), type text),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Inserted Merged Column",{{"Date", type date}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type","KOREA, REPUBLIC OF","REPUBLIC OF KOREA",Replacer.ReplaceText,{"Purch Cust Region"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","VIET NAM","VIETNAM",Replacer.ReplaceValue,{"Customer Country"})
+				in
+				    #"Replaced Value1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,98 @@
+table 'Date Table'
+	lineageTag: 0755f4dd-89d7-46ce-96f4-690afb567018
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bdc9750f-f13b-4c6d-9a36-1b2280fd2f74
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: eaccd20b-0079-45a1-8a5a-e1b969b0d386
+			defaultHierarchy: LocalDateTable_d45537b2-6b7e-459d-ba6e-d0fa4551ff8d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 7f506bfe-6c53-4f77-9f6c-3b3eb3582a62
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Start of Month'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: fb24ddf6-4c15-410f-b131-d2bd180e298f
+		summarizeBy: none
+		sourceColumn: Start of Month
+
+		variation Variation
+			isDefault
+			relationship: 5732f5f3-8267-4097-bdb2-f0f516641c54
+			defaultHierarchy: LocalDateTable_3739f10f-1b2d-44fe-aa9a-4656b807ed9f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 78ddba6f-0565-413d-9ed6-6ad4e58f3c10
+		summarizeBy: sum
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: 1261c175-1b0b-4e63-8f3e-3eac6b0a7bc3
+		summarizeBy: sum
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Start of Week'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 19bf5813-6001-4fba-951c-547a9601cf43
+		summarizeBy: none
+		sourceColumn: Start of Week
+
+		variation Variation
+			isDefault
+			relationship: 261aa4a3-03af-49fd-ad43-260762de3103
+			defaultHierarchy: LocalDateTable_7436118b-1eb6-407c-87ab-91b6997d7530.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'Date Table' = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\tiwar\Desktop\Sales Data_4\Date Table.csv"),[Delimiter=",", Columns=1, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Column1", "Date"}}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Renamed Columns",{{"Date", type date}}),
+				    #"Inserted Year" = Table.AddColumn(#"Changed Type1", "Year", each Date.Year([Date]), Int64.Type),
+				    #"Inserted Start of Month" = Table.AddColumn(#"Inserted Year", "Start of Month", each Date.StartOfMonth([Date]), type date),
+				    #"Inserted Quarter" = Table.AddColumn(#"Inserted Start of Month", "Quarter", each Date.QuarterOfYear([Date]), Int64.Type),
+				    #"Inserted Month" = Table.AddColumn(#"Inserted Quarter", "Month", each Date.Month([Date]), Int64.Type),
+				    #"Inserted Start of Week" = Table.AddColumn(#"Inserted Month", "Start of Week", each Date.StartOfWeek([Date]), type date)
+				in
+				    #"Inserted Start of Week"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

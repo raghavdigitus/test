@@ -1,0 +1,51 @@
+table 'Exec Parameter'
+	lineageTag: fedd63e9-ca03-4aa8-85c4-08960d9f86c1
+
+	column Parameter
+		lineageTag: 5e584d82-564d-4ad0-9124-662f92239571
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parameter Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Parameter Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Fields'
+		isHidden
+		lineageTag: b65b9352-b14a-4bd8-bad7-8f353b792051
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parameter Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Order'
+		isHidden
+		formatString: 0
+		lineageTag: 8d2d8f99-f153-478c-9dd8-ab7eabf22208
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Exec Parameter' = calculated
+		mode: import
+		source =
+				{
+				    ("Total Billing Amount", NAMEOF('Measured Values'[Total Billing Amount]), 0),
+				    ("Total Booking Amount", NAMEOF('Measured Values'[Total Booking Amount]), 1),
+				    ("Total Transactions", NAMEOF('Measured Values'[Total Transactions]), 2),
+				    ("Previous Month Billing", NAMEOF('Measured Values'[Previous Month Billing]), 3),
+				    ("Previous Month Booking", NAMEOF('Measured Values'[Previous Month Booking]), 4)
+				}
+
+	annotation PBI_Id = 1e6384cd072a4b5cbc126df5d1c40b14
+
