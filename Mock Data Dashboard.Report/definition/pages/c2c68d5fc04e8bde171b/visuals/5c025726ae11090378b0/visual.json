@@ -42,12 +42,12 @@
                       "Entity": "Measured Values"
                     }
                   },
-                  "Property": "Total Billing Amount"
+                  "Property": "Total Transactions"
                 }
               },
-              "queryRef": "Measured Values.Total Billing Amount",
-              "nativeQueryRef": "Total Billing Amount",
-              "displayName": "Total Billing Amount"
+              "queryRef": "Measured Values.Total Transactions",
+              "nativeQueryRef": "Total Transactions",
+              "displayName": "Total Transactions"
             }
           ],
           "fieldParameters": [
@@ -78,7 +78,7 @@
                     "Entity": "Measured Values"
                   }
                 },
-                "Property": "Total Billing Amount"
+                "Property": "Total Transactions"
               }
             },
             "direction": "Descending"
@@ -180,7 +180,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Analysis on Customer Region (Top 5)'"
+                  "Value": "'Analysis on Customer Region (Top 10)'"
                 }
               }
             },
@@ -301,7 +301,7 @@
                         }
                       }
                     ],
-                    "Top": 5
+                    "Top": 10
                   }
                 }
               },
@@ -352,6 +352,21 @@
               }
             },
             "Property": "Total Billing Amount"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "e5206bc86cc293ba6e00",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measured Values"
+              }
+            },
+            "Property": "Total Transactions"
           }
         },
         "type": "Advanced"

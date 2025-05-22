@@ -81,7 +81,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'''Measured Values''[Total Billing Amount]'"
+                                "Value": "'''Measured Values''[Total Transactions]'"
                               }
                             }
                           ]
@@ -109,7 +109,7 @@
                                 "0": [
                                   {
                                     "Literal": {
-                                      "Value": "'''Measured Values''[Total Billing Amount]'"
+                                      "Value": "'''Measured Values''[Total Transactions]'"
                                     }
                                   }
                                 ]
@@ -133,7 +133,7 @@
                         },
                         "valueMap": [
                           {
-                            "0": "Total Billing Amount"
+                            "0": "Total Transactions"
                           }
                         ]
                       }

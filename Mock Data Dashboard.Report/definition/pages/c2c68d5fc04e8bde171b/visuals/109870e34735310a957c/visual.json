@@ -67,12 +67,12 @@
                       "Entity": "Measured Values"
                     }
                   },
-                  "Property": "Total Billing Amount"
+                  "Property": "Total Transactions"
                 }
               },
-              "queryRef": "Measured Values.Total Billing Amount",
-              "nativeQueryRef": "Total Billing Amount",
-              "displayName": "Total Billing Amount"
+              "queryRef": "Measured Values.Total Transactions",
+              "nativeQueryRef": "Total Transactions",
+              "displayName": "Total Transactions"
             }
           ],
           "fieldParameters": [
