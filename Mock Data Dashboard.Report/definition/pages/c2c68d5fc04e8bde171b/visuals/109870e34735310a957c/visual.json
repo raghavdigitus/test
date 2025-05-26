@@ -10,10 +10,10 @@
     "tabOrder": 8000
   },
   "visual": {
-    "visualType": "treemap",
+    "visualType": "donutChart",
     "query": {
       "queryState": {
-        "Group": {
+        "Category": {
           "projections": [
             {
               "field": {
@@ -33,7 +33,7 @@
               },
               "queryRef": "Appended Table.Business Group Hierarchy.Business Group",
               "nativeQueryRef": "Business Group Hierarchy Business Group",
-              "active": false
+              "active": true
             },
             {
               "field": {
@@ -53,11 +53,11 @@
               },
               "queryRef": "Appended Table.Business Group Hierarchy.Business Units",
               "nativeQueryRef": "Business Group Hierarchy Business Units",
-              "active": true
+              "active": false
             }
           ]
         },
-        "Values": {
+        "Y": {
           "projections": [
             {
               "field": {
@@ -94,6 +94,21 @@
         }
       },
       "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Measured Values"
+                  }
+                },
+                "Property": "Total Transactions"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
         "isDefaultSort": true
       }
     },
@@ -691,57 +706,6 @@
                 }
               }
             ]
-          }
-        }
-      ],
-      "categoryLabels": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        },
-        {
-          "properties": {
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
-                }
-              }
-            ]
-          }
-        }
-      ],
-      "layout": [
-        {
-          "properties": {
-            "tilingMethod": {
-              "expr": {
-                "Literal": {
-                  "Value": "'stableSquarified'"
-                }
-              }
-            }
           }
         }
       ]

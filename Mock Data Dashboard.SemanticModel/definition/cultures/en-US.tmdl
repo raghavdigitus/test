@@ -12,10 +12,19 @@ cultureInfo en-US
 			          "ConceptualProperty": "Total Billing Amount"
 			        }
 			      },
+			      "State": "Generated"
+			    },
+			    "measured_values.total_transactions": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Measured Values",
+			          "ConceptualProperty": "Total Transactions"
+			        }
+			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Total Billing Amount": {
+			          "Total Transactions": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
